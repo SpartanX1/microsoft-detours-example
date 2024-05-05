@@ -1,4 +1,6 @@
 # Microsoft Detours Novice Guide
+![pexels-robertkso-15208236](https://github.com/SpartanX1/microsoft-detours-example/assets/37375281/7175c645-a0a2-4765-af1e-ce86337642a7)
+
 A complete tutorial on how to use the https://github.com/microsoft/Detours package to hook windows applications
 
 Detours is a fantastic package by Microsoft to hook into any Win32 APIs used by Windows Applications (Apps, Games). There were of course other ways to
