@@ -19,6 +19,12 @@ There are four major items to consider -
 [MS Visual Studio](https://visualstudio.microsoft.com/downloads/) (any version, you can get community edition for free)
 
 ## Getting started
+```mermaid
+flowchart LR
+    A[Target app] -->|calls windows api| B(Sleep Fn)
+    B --> |call hook|C(Custom Detours Fn)
+    C --> |return control|B
+```
 
 We will be using the beginner code from the detours [wiki](https://github.com/microsoft/detours/wiki/Using-Detours) with some minor changes to make it work.
 
