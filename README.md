@@ -26,7 +26,7 @@ We will be using the beginner code from the detours [wiki](https://github.com/mi
 
 For our target application, I will just build a C++ console app in Visual Studio which calls the windows [Sleep()](https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleep) function.
 
-```
+```cpp
 #include <iostream>
 #include <windows.h>
 #include <synchapi.h>
