@@ -71,7 +71,7 @@ Here comes the important part, in order to intercept/hook into a function, we ne
 it with our hooked fn.
 
 So looking at [Sleep()](https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleep) definition, it's signature is 
-```
+```cpp
 void Sleep(
   [in] DWORD dwMilliseconds
 );
@@ -79,7 +79,7 @@ void Sleep(
 The return type is `void` and it takes one param with the type `DWORD`
 
 Detours needs a pointer to this fn to identity it
-```
+```cpp
 static VOID (WINAPI * TrueSleep)(DWORD dwMilliseconds) = Sleep;
 
 // VOID for return type
@@ -94,7 +94,7 @@ Now, onto the actual hook ! Say we want to print a message to console whenever t
 Notice the same signature.
 What we are doing here is simply printing a message to the console before returning control to the original sleep fn
 referenced via `TrueSleep` pointer we created
-```
+```cpp
 VOID WINAPI TimedSleep(DWORD dwMilliseconds)
 {
     std::cout << "Hooked\n";
@@ -104,7 +104,7 @@ VOID WINAPI TimedSleep(DWORD dwMilliseconds)
 
 The full code is below
 
-```
+```cpp
 #include <windows.h>
 #include <detours.h>
 #include <iostream>
@@ -191,10 +191,13 @@ Let's export our function by making a slight change
 Yup that's the only change we need.
 
 Now run the command again !
-`withdll /d:custom_hook.dll target_app.exe`
+
+```console
+withdll /d:custom_hook.dll target_app.exe
+```
 
 You will see the following output
-```
+```console
 Calling Sleep Fn !
 Hooked
 Done with Sleep Fn !
